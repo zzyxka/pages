@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="ZXing for JS" />
+
+		<title>ZXing TypeScript | Decoding from camera stream</title>
+
+	<body>
+		<main class="wrapper" style="padding-top: 2em">
+			<section class="container" id="demo-content">
+				<h1 class="title">Scan 1D/2D Code from Video Camera</h1>
+				<div>
+					<a class="button" id="startButton">Start</a>
+				</div>
+				<div>
+					<video
+						id="video"
+						width="300"
+						height="200"
+						style="border: 1px solid gray"
+					></video>
+				</div>
+				<div id="sourceSelectPanel" style="display: none">
+					<label for="sourceSelect">Change video source:</label>
+					<select id="sourceSelect" style="max-width: 400px"></select>
+				</div>
+
+				<pre><code id="result"></code></pre>
+			</section>
+		</main>
+
+		<script
+			type="text/javascript"
+			src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"
+		></script>
+		<script type="text/javascript">
+			window.addEventListener('load', function () {
+				let selectedDeviceId;
+				const codeReader = new ZXing.BrowserMultiFormatReader();
+				codeReader
+					.listVideoInputDevices()
+					.then((videoInputDevices) => {
+						console.log('videoInputDevices: ', videoInputDevices);
+						let	selectedDeviceId = videoInputDevices[0].deviceId;
+						if (videoInputDevices.length > 1) {
+							selectedDeviceId = videoInputDevices[1].deviceId;
+						}
+						const scan = () => {
+							codeReader.decodeFromVideoDevice(
+								selectedDeviceId,
+								'video',
+								(result, err) => {
+									if (result) {
+										console.log(result);
+										document.getElementById('result').textContent += result.text;
+									}
+									if (err && !(err instanceof ZXing.NotFoundException)) {
+										console.error(err);
+										document.getElementById('result').textContent = err;
+									}
+								}
+							);
+							console.log(
+								`Started continous decode from camera with id ${selectedDeviceId}`
+							);
+						};
+
+						document
+							.getElementById('startButton')
+							.addEventListener('click', scan);
+					})
+					.catch((err) => {
+						console.error(err);
+					});
+			});
+		</script>
+	</body>
+</html>
