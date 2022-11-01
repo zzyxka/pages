@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome判断</title>
+</head>
+
+<body>
+  <h1 id="tip"></h1>
+  <script type="text/javascript">
+    var tip = document.getElementById("tip");
+    if (window.chrome) {
+      tip.innerText = '是 Chrome'
+    } else {
+      tip.innerText = '非 Chrome'
+    }
+  </script>
+</body>
+
+</html>
