@@ -12,7 +12,8 @@
   <h1 id="tip"></h1>
   <script type="text/javascript">
     var tip = document.getElementById("tip");
-    if (window.chrome) {
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if (isChrome) {
       tip.innerText = '是 Chrome'
     } else {
       tip.innerText = '非 Chrome'
