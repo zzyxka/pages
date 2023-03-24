@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多行文本超出隐藏</title>
+  <style>
+    div {
+      display: inline-block;
+      width: 400px;
+      margin: 20px;
+      /* WARNING 不要在这里用 padding 会导致异常显示 */
+      /* padding: 10px; */
+      border: 1px solid;
+    }
+
+    .two-rows {
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .three-rows {
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="two-rows">AI：你以为前端开发很简单吗？其实只要你会点 HTML 和 CSS，会点 JavaScript，会用 React，就可以了。但是，当你开始真正接触项目时，你会发现，前端开发不仅仅是写代码，还要考虑性能、兼容性、可维护性、可扩展性等等一系列问题。而且，前端开发还要和后端开发、产品经理、UI 设计师等多个团队密切合作，协调工作，解决问题。如果你连一张图都画不好，那么你还是别想成为一个优秀的前端开发人员了。</div>
+  <div class="three-rows">狗屁不通文章生成器：经过上述讨论， 对我个人而言，生活的意义不仅仅是一个重大的事件，还可能会改变我的人生。 一般来讲，我们都必须务必慎重的考虑考虑。 经过上述讨论， 俾斯麦曾经说过，对于不屈不挠的人来说，没有失败这回事。我希望诸位也能好好地体会这句话。 生活的意义，到底应该如何实现。 达尔文说过一句富有哲理的话，敢于浪费哪怕一个钟头时间的人，说明他还不懂得珍惜生命的全部价值。这似乎解答了我的疑惑。 一般来说， 歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这不禁令我深思。 白哲特说过一句富有哲理的话，坚强的信念能赢得强者的心，并使他们变得更坚强。 我希望诸位也能好好地体会这句话。 莎士比亚说过一句富有哲理的话，那脑袋里的智慧，就像打火石里的火花一样，不去打它是不肯出来的。我希望诸位也能好好地体会这句话。 一般来说， 生活的意义，发生了会如何，不发生又会如何。</div>
+</body>
+
+</html>
