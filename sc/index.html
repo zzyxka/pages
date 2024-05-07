@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .data {
+      position: relative;
+      z-index: 1;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      display: block;
+      text-align: center;
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .data:hover>.mask {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>我是不敏感区域</p>
+    <p>我是不敏感区域</p>
+    <p>我是不敏感区域</p>
+    <p>我是不敏感区域</p>
+  </div>
+  <div class="data">
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <p>我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域，我是数据区域</p>
+    <div class="mask">
+      <h1>禁止截图</h1>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+      // 这里可以添加一些额外的逻辑，比如显示一个自定义的提示信息  
+      // alert('右键菜单已被禁用！');  
+      return false;
+    });
+    document.onkeydown = (e) => {
+      console.log('e: ', e);
+      if (
+        // 屏蔽F1-F12键、F1 - F12 => 112 - 123
+        (e.keyCode >= 112 && e.keyCode <= 123) ||
+        // 屏蔽TAB键
+        e.keyCode === 9 ||
+        // 禁止使用ALT、 CTRL、 SHIFT、command + 任意键!
+        ((e.altKey || e.ctrlKey || e.shiftKey || e.metaKey) && e.keyCode < 10000)
+      ) {
+        window.event.returnValue = false;
+        event.stopPropagation();
+        return false;
+      }
+    };
+  </script>
+</body>
+
+</html>
