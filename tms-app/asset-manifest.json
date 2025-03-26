@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.f855e6bc.css",
-    "main.js": "/static/js/main.14f52836.js",
-    "index.html": "/index.html",
-    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
-    "main.14f52836.js.map": "/static/js/main.14f52836.js.map"
+    "main.css": "/pages/tms-app/static/css/main.f855e6bc.css",
+    "main.js": "/pages/tms-app/static/js/main.ef9d24b4.js",
+    "index.html": "/pages/tms-app/index.html",
+    "main.f855e6bc.css.map": "/pages/tms-app/static/css/main.f855e6bc.css.map",
+    "main.ef9d24b4.js.map": "/pages/tms-app/static/js/main.ef9d24b4.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.14f52836.js"
+    "static/js/main.ef9d24b4.js"
   ]
 }
